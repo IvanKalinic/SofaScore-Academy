@@ -31,6 +31,7 @@ input[type="password"] {
 input:focus::-webkit-input-placeholder{
   color:lightblue;
 }
+
 .back {
   background-color: #a5b4b5;
   width: 600px;
