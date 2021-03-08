@@ -1,128 +1,98 @@
-
 h2 {
-  color:white;
+  color: white;
   font-size: 45px;
   margin-top: 45px;
 }
-.image{
-  position: absolute;
-  margin:50px 140px;
-  width:300px;
-  height: 300px;
- z-index: 1;
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  /* padding: 12px 20px; */
-  margin: 8px 0;
-  display: inline-block;
-  border: 0;
-  outline: none;
-  box-shadow: none;
-  border-radius: 10px;
-  box-sizing: border-box;
-  line-height: 30px;
-  padding: 8px 15px;
-  border-bottom: 1px solid #eee;
-  font-size: 12px;
-}
-input:focus::-webkit-input-placeholder{
-  color:lightblue;
+body {
+  background-color: #e1e8ee;
+  font-family: "Roboto";
 }
 .back {
   background-color: #a5b4b5;
   width: 600px;
-  height: 800px;
-  position: relative;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
   border-radius: 20px;
 }
 .form {
   background-color: white;
   border-radius: 20px;
-  height: 300px;
   width: 400px;
-  position: relative;
   overflow: hidden;
   padding: 16px;
-  position: absolute;
-  margin: 400px 82px;
-  opacity: 1;
-  visibility: visible;
+  margin:15px;
 }
-
-body {
-  background-color: #e1e8ee;
-  font-family: "Lucida Sans";
+.image {
+  width: 100px;
+  height: 100px;
 }
-
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  border-radius: 10px;
+  line-height: 30px;
+  padding: 8px 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+input:focus::-webkit-input-placeholder {
+  color: lightblue;
+}
+.button{
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  box-shadow: none;
+}
 .button-position {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .button-login {
-  background-color:#60777d;
-  border-radius: 10px;
-  border: none;
+  background-color: #60777d;
   color: white;
-  font-size: 16px;
-  padding: 10px 20px;
   display: inline-block;
   width: 100%;
   height: 45px;
-  opacity:1;
-  visibility: visible;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-  transition: all .3s ease-out; 
+  opacity: 1;
+  transition: background-color 0.3s ease-out;
 }
-.button-login:hover{
-  background-color:#434545;
+.button-login:hover {
+  background-color: #434545;
 }
-
 .additional {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
 }
-
 .signup-button {
-  font-size: 16px;
-  border-radius: 10px;
-  padding: 10px 20px;
   width: 48%;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-  transition: all .3s ease-out; 
-  
+  transition: background-color 0.3s ease-out;
 }
-.signup-button:hover{
+.signup-button:hover {
   background-color: #a5b4b5;
 }
 .cancel-button {
   background-color: #de2a5a;
-  border-radius: 10px;
   color: white;
-  font-size: 16px;
-  padding: 10px 20px;
   width: 48%;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-  visibility: visible;
-  transition: all .3s ease-out;
+  transition: background-color 0.3s ease-out;
 }
-.cancel-button:hover{
-  background-color:red;
+.cancel-button:hover {
+  background-color: red;
 }
-
 .circle {
   width: 50px;
   height: 50px;
@@ -131,28 +101,26 @@ body {
   border-radius: 50%;
   margin: 11px;
 }
-.little-circle{
-  width:15px;
+.little-circle {
+  width: 15px;
   height: 15px;
-  position:absolute;
+  position: absolute;
   background-color: #de2a5a;
-  margin:15px;
-  border-radius:50%;
-  animation:getBigger 7s;
-  animation-delay:3s;
+  margin: 15px;
+  border-radius: 50%;
+  animation: getBigger 7s;
+  animation-delay: 3s;
 }
-
-.hide{
+.hide {
   visibility: hidden;
-  color:white;
-  margin-top:30px;
+  color: white;
+  margin-top: 30px;
   font-size: 10px;
-  display:flex;
+  display: flex;
   justify-content: center;
-  animation:showText 6s;
-  animation-delay:4s;
+  animation: showText 6s;
+  animation-delay: 4s;
 }
-
 .triangle-left {
   width: 0;
   height: 0;
@@ -167,7 +135,7 @@ body {
   z-index: 1;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-left: 55px solid  #434545;
+  border-left: 55px solid #434545;
 }
 .wrap {
   display: flex;
@@ -180,7 +148,7 @@ body {
   margin: 30px 20px;
   display: flex;
   justify-content: center;
-  animation:rotate 3s;
+  animation: rotate 3s;
 }
 
 @keyframes slide {
@@ -198,79 +166,73 @@ body {
   }
 }
 
-@keyframes rotate{
-  0%{
-    -webkit-transform: 
-    rotate3d(0,0,1,0deg);
-    transform:rotate3d(0,0,1,0deg);
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg);
   }
-  25%{
-    -webkit-transform: 
-    rotate3d(0,0,1,0deg);
-    transform:rotate3d(0,0,1,90deg);
+  25% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 90deg);
   }
-  50%{
-    -webkit-transform: 
-    rotate3d(0,0,1,0deg);
-    transform:rotate3d(0,0,1,180deg);
+  50% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 180deg);
   }
-  75%{
-    -webkit-transform: 
-    rotate3d(0,0,1,0deg);
-    transform:rotate3d(0,0,1,270deg);
+  75% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 270deg);
   }
-  100%{
-    -webkit-transform: 
-    rotate3d(0,0,1,0deg);
-    transform:rotate3d(0,0,1,360deg);
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 360deg);
   }
 }
-@keyframes getBigger{
-  0%{
-    width:15px;
-    height:15px;
+@keyframes getBigger {
+  0% {
+    width: 15px;
+    height: 15px;
   }
-  50%{
-    width:90px;
-    height:90px;
+  50% {
+    width: 90px;
+    height: 90px;
     z-index: 1;
   }
-  100%{
-    width:15px;
-    height:15px;
+  100% {
+    width: 15px;
+    height: 15px;
   }
 }
 
-@keyframes showText{
-  0%{
-    visibility:hidden;
-    opacity:0;
+@keyframes showText {
+  0% {
+    opacity: 0;
   }
-  10%{
-    opacity:0.2;
+  10% {
+    opacity: 0.2;
   }
-  14%{
-    opacity:0.3;
+  14% {
+    opacity: 0.3;
   }
-  17%{
-    opacity:0.5;
+  17% {
+    opacity: 0.5;
   }
-  20%{
-    visibility: visible;
+  20% {
     font-size: 20px;
     font-weight: bold;
-    opacity:1;
+    visibility: visible;
+    opacity: 1;
   }
-  60%{
-    opacity:0.8;
+  60% {
+    opacity: 0.8;
   }
-  70%{
-    opacity:0.6;
+  70% {
+    opacity: 0.6;
   }
-  78%{
-    opacity:0.4;
+  78% {
+    opacity: 0.4;
   }
-  85%{
-    visibility: hidden;
+  85% {
+    opacity: 0;
   }
 }
