@@ -46,6 +46,7 @@ input[type="password"] {
 input:focus::-webkit-input-placeholder {
   color: lightblue;
 }
+
 .button{
   font-size: 16px;
   border-radius: 10px;
@@ -54,6 +55,7 @@ input:focus::-webkit-input-placeholder {
   outline: none;
   padding: 10px 20px;
   box-shadow: none;
+
 }
 .button-position {
   display: flex;
