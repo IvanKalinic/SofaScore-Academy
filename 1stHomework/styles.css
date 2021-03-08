@@ -129,6 +129,7 @@ input:focus::-webkit-input-placeholder {
   border-bottom: 40px solid transparent;
   border-right: 55px solid #434545;
 }
+
 .triangle-right {
   width: 0;
   height: 0;
@@ -137,12 +138,14 @@ input:focus::-webkit-input-placeholder {
   border-bottom: 40px solid transparent;
   border-left: 55px solid #434545;
 }
+
 .wrap {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row-reverse;
   justify-content: center;
 }
+
 .triangles {
   position: relative;
   margin: 30px 20px;
