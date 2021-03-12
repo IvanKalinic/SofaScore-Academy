@@ -24,7 +24,7 @@ module.exports = {
   createObjectWithMethod(value) {
     var obj = {
       value: value,
-      getValue: function() {
+      getValue: function () {
         return this.value;
       },
     };
@@ -35,28 +35,28 @@ module.exports = {
    * Returns an object with the `getValue` and `setValue` methods,
    *  having `value` hidden from the outside.
    */
-  createEncapsulatedObject() {   // closures
+  createEncapsulatedObject() {
+    // closures
     var _value;
 
-    var obj = { 
-      setValue:function(value){
-        _value= value;
+    var obj = {
+      setValue: function (value) {
+        _value = value;
       },
-      getValue:function(){
+      getValue: function () {
         return _value;
-      }
+      },
     };
-  
+
     return obj;
   },
-
   /**
    * Returns the shallow copy of the given `obj`.
    *  HINT: This **operator** will be used later.
    * @param {Object} obj
    */
   shallowCopy(obj) {
-    var copiedObject = Object.assign({},obj);
+    var copiedObject = Object.assign({}, obj);
     return copiedObject;
   },
 
@@ -64,81 +64,163 @@ module.exports = {
    * Returns the deep copy of the given `obj`.
    * @param {Object} obj
    */
-  deepCopy(obj) {},
+  deepCopy(obj) {
+    var deepCopiedObj = JSON.parse(JSON.stringify(obj));
+    return deepCopiedObj;
+  },
 
   /**
    * Returns an array containing 2 elements which are
    * loosely equal, but strictly unequal.
    */
-  looselyTrue() {},
+  looselyTrue() {
+    var array = [0, "0"];
+    return array;
+  },
 
   /**
    * Returns a string that is loosely equal to boolean `true`. This one is tricky :)
    */
-  stringLooselyEqualToTrue() {},
+  stringLooselyEqualToTrue() {
+    var trueN = "1";
+    return trueN;
+  },
 
   /**
    * Returns correct sum of a and b.
    */
-  safeSum(a, b) {},
+  safeSum(a, b) {
+    return +a + +b;
+  },
 
   /**
    * Returns formatted string for the given date.
    * Format should be `{day}-{month}-{fullYear}` (all numbers).
    * @param {Date} date
    */
-  formatDate(date) {},
+  formatDate(date) {
+    var newDate = new Date(date);
+    var day = newDate.getDate();
+    var month = newDate.getMonth() + 1;
+    var year = newDate.getFullYear();
+    var dateString = day + "-" + month + "-" + year;
+    return dateString;
+    // return `${day}--${month}--${year}`;
+  },
 
   /**
    * Sorts the given `numberArray` in ascending order.
-   * Use array `.sort` method. Sort is done in place so there is no need to return anything.
+   * Use array `.sort` method. Sort is done in place so there is no need
+   * to return anything.
    * @param {number[]} numberArray
    */
-  sortNumberArray(numberArray) {},
+  sortNumberArray(numberArray) {
+    numberArray.sort((a, b) => a - b);
+    return numberArray;
+  },
 
   /**
    * Multiplies all the elements in the array by 2 _in place_
    * (edits the given array) and returns it.
    * @param {number[]} numberArray
    */
-  multiplyArrayByTwo(numberArray) {},
+  multiplyArrayByTwo(numberArray) {
+    for (var i = 0; i < numberArray.length; i++) {
+      numberArray[i] *= 2;
+    }
+    return numberArray;
+  },
 
   /**
    * Multiplies all the elements in the array by 2 and returns them
    * in a new array.
    * @param numberArray
    */
-  multiplyArrayByTwoNew(numberArray) {},
+  multiplyArrayByTwoNew(numberArray) {
+    var newArray = numberArray.map((element) => element * 2);
+    return newArray;
+  },
 
   /**
    * Create two classes: `Person` and `Programmer`. `Programmer` class extends `Person`.
-   * Person class has `name` property (set via constructor) and `getName` method (calls `callGetName` with name`).
-   * Programmer class has `language` property provided to constructor (and `name` inherited from `Person`) and `getLanguage` method (calls `callGetLanguage` with `language`)
+   * Person class has `name` property (set via constructor) and `getName` method
+   * (calls `callGetName` with name`).
+   * Programmer class has `language` property provided to
+   *  constructor (and `name` inherited from `Person`) and `getLanguage`
+   * method (calls `callGetLanguage` with `language`)
    * Return object with created classes, `return { Person, Programmer }`.
    *
-   * NOTE: class methods should use `bind`, function expression syntax won't work here because code isn't transpiled.
+   * NOTE: class methods should use `bind`, function expression syntax
+   * won't work here because code isn't transpiled.
    *
    * @param {Function} callGetName
    * @param {Function} callGetLanguage
    */
-  classInheritance(callGetName, callGetLanguage) {},
+  classInheritance(callGetName, callGetLanguage) {
+    class Person {
+      constructor(name) {
+        this.name = name;
+        this.getName = this.getName.bind(this);
+      }
+      getName() {
+        callGetName(this.name);
+      }
+      callGetName(name) {
+        return name;
+      }
+    }
+    class Programmer extends Person {
+      constructor(name, language) {
+        super(name);
+        this.language = language;
+        this.callGetLanguage = this.callGetLanguage.bind(this);
+      }
+      getLanguage() {
+        callGetLanguage(this.language);
+      }
+      callGetLanguage(language) {
+        return language;
+      }
+    }
+
+    return { Person, Programmer };
+  },
 
   /**
-   * EXTRA CREDIT TASK -> Closure trick with async. Async is not important here and has nothing to do with the solution.
+   * EXTRA CREDIT TASK -> Closure trick with async.
+   * Async is not important here and has nothing to do with the solution.
    *
-   * **This is variant of probably most common "big firm" interview question with closures.**
+   * **This is variant of probably most common "big firm" interview question
+   * with closures.**
    *
-   * This task has more easier solutions (e.g. using `let` instead of `var`), but desired solutions included Closures.
+   * This task has more easier solutions (e.g. using `let` instead of `var`),
+   * but desired solutions included Closures.
    *
-   * Call the `consumer` function once every second three times giving it loop iterator as argument.
+   * Call the `consumer` function once every second three times giving it loop iterator
+   *  as argument.
    * Use the provided for loop, do not change for loop, but feel free to modify setTimeout.
    * @param {Function} consumer
    */
   timeoutIncrement(consumer) {
+    var array = [];
     for (var i = 1; i <= 3; i += 1) {
-      setTimeout(() => {
-        /* your function goes here, or instead of this function */
-      }, 1000);
+      // setTimeout(()=>{
+      //   consumer(i);
+      // },1000);
+      /* your function goes here, or instead of this function */
+      function consumer(i) {
+        setTimeout(() => {
+          console.log(i);
+        }, 1000);
+      };
     }
+
+    // function consumer(counter){
+    //   var newArray=[];
+    //   newArray.push(counter);
+    //   array.push(newArray);
+
+    // }
+    // return array;
   },
 };
