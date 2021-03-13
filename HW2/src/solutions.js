@@ -210,7 +210,7 @@ module.exports = {
       /* your function goes here, or instead of this function */
       function consumer(i) {
         setTimeout(() => {
-          console.log(i);
+          array.push(i);
         }, 1000);
       };
     }
@@ -221,6 +221,6 @@ module.exports = {
     //   array.push(newArray);
 
     // }
-    // return array;
+     return array;
   },
 };
