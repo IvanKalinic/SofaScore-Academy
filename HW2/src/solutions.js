@@ -36,19 +36,14 @@ module.exports = {
    *  having `value` hidden from the outside.
    */
   createEncapsulatedObject() {
-    // closures
-    var _value;
+    return( function(){
+      let value=0;
 
-    var obj = {
-      setValue: function (value) {
-        _value = value;
-      },
-      getValue: function () {
-        return _value;
-      },
-    };
-
-    return obj;
+      return{
+        setValue: (newValue) => value=newValue,
+        getValue: ()=> value
+      }
+    })()
   },
   /**
    * Returns the shallow copy of the given `obj`.
@@ -202,25 +197,16 @@ module.exports = {
    * @param {Function} consumer
    */
   timeoutIncrement(consumer) {
-    var array = [];
     for (var i = 1; i <= 3; i += 1) {
-      // setTimeout(()=>{
-      //   consumer(i);
-      // },1000);
-      /* your function goes here, or instead of this function */
-      function consumer(i) {
-        setTimeout(() => {
-          array.push(i);
-        }, 1000);
-      };
+      setTimeout(
+        (function () {
+          const a = i
+          return function () {
+            consumer(a)
+          }
+        })(),
+        1000
+      )
     }
-
-    // function consumer(counter){
-    //   var newArray=[];
-    //   newArray.push(counter);
-    //   array.push(newArray);
-
-    // }
-     return array;
   },
 };
