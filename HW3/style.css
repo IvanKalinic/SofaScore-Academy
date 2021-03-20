@@ -1,0 +1,61 @@
+.poke {
+  background-color: bisque;
+  /* min-width:200px; */
+  width: 20%;
+  text-align: center;
+  padding: 20px;
+  border-radius: 6px;
+  /* border:10px; */
+  margin-bottom: 1rem;
+  margin-right: 5px;
+}
+
+#pokedex {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-style {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  height: auto;
+}
+
+.button {
+  background-color: #f24646; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #612222;
+}
+.container{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+.btn-prev {
+    margin-right:5px;
+    /* float:right;
+    margin-bottom: 10px;
+    margin-right:100px; */
+
+}
+
+.btn-next {
+    
+}
+
