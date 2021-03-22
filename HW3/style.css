@@ -1,21 +1,28 @@
+body,html{
+  margin:0;
+}
+
 .poke {
   background-color: bisque;
   /* min-width:200px; */
-  width: 20%;
+  width: 300px;
   text-align: center;
   padding: 20px;
   border-radius: 6px;
   /* border:10px; */
   margin-bottom: 1rem;
   margin-right: 5px;
+  height:400px;
 }
 
 #pokedex {
-  margin-top: 15px;
+  padding-top: 15px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  height:calc(100vh - 30px - 15px);
+  overflow:auto;
 }
 
 .image-style {
@@ -23,7 +30,11 @@
   margin-left: auto;
   margin-right: auto;
   width: 70%;
-  height: auto;
+}
+
+footer{
+  height:30px;
+  background-color: #f24646;
 }
 
 .button {
@@ -49,9 +60,6 @@
 }
 .btn-prev {
     margin-right:5px;
-    /* float:right;
-    margin-bottom: 10px;
-    margin-right:100px; */
 
 }
 

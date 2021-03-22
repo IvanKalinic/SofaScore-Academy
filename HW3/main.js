@@ -58,7 +58,11 @@ getPokemon();
 // function pagination(){
 
 const btnNext = document.querySelector(".btn-next");
-btnNext.addEventListener("click", () => {
+const btnPrev = document.querySelector(".btn-prev");
+btnNext.addEventListener("click", handleNext);
+btnPrev.addEventListener("click",handlePrev );
+
+function handleNext(){
   if (end >= 20) {
     return pokedex.innerHTML;
   }
@@ -71,10 +75,9 @@ btnNext.addEventListener("click", () => {
   btnNext.innerHTML = end / perPage + 1;
   displayPokemon(allPokemons);
   
-});
+}
 
-const btnPrev = document.querySelector(".btn-prev");
-btnPrev.addEventListener("click", () => {
+function handlePrev(){
   if (end <= perPage) {
     return pokedex.innerHTML;
   }
@@ -89,4 +92,5 @@ btnPrev.addEventListener("click", () => {
   displayPokemon(allPokemons);
   console.log(end/perPage+1);
   
-});
+}
+
