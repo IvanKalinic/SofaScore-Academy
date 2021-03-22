@@ -29,7 +29,7 @@ const displayPokemon = (pokemon) => {
   // console.log(pokemon);
 
   pokemon.map((poke) => {
-    let pokeResult = `<div class="poke" id="delete">
+    let pokeResult = `<div class="poke">
         <img class="image-style" src="${poke.image}"/> 
         <h2>${poke.id}, ${poke.name}</h2>
         <p>Type:${poke.type}</p>
