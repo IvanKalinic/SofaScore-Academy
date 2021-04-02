@@ -1,0 +1,33 @@
+.image-list {
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+.image-list img {
+  width: 250px;
+  margin-right: 50px;
+}
+
+@media only screen and (min-width: 1100px) {
+  .image-list {
+    height: calc(100vh - 230px);
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .image-list {
+    flex-wrap: wrap;
+    height: calc(100vh - 50px);
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .image-list {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 645px) {
+  .image-list {
+    height: calc(100vh + 800px);
+  }
+}
