@@ -11,7 +11,7 @@ class Edit extends React.Component {
       this.setState({term:event.target.value});
   }
   onFormSubmit = (event) =>{
-    this.props.selected.clicked ++;
+    // this.props.selected.clicked ++;
     event.preventDefault();
     this.props.onFormSubmit(this.state.term,this.props.birthday)
   }
