@@ -13,7 +13,6 @@ class Edit extends React.Component {
   onFormSubmit = (event) =>{
     // this.props.selected.clicked ++;
     event.preventDefault();
-    
     this.props.onFormSubmit(this.state.term,this.props.birthday)
   }
  
