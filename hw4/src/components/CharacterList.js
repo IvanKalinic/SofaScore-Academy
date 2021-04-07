@@ -47,7 +47,7 @@ class CharacterList extends React.Component {
         <div className="image-list">{characters}</div>
         <div>
           {this.props.clear ? (
-            <button id="clear" className="negative ui button" onClick={() => this.props.clearItems()}>
+            <button id="clear" className="negative ui button" onClick={this.props.clearItems}>
               Clear all characters
             </button>
           ) : (
