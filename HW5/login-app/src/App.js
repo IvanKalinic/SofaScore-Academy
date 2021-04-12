@@ -6,7 +6,12 @@ import Alert from "./components/Alert";
 import RememberMe from "./components/RememberMe";
 import Login from "./components/Login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash,faCaretDown,faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEye,
+  faEyeSlash,
+  faCaretDown,
+  faCaretUp,
+} from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
 const caretDown = <FontAwesomeIcon icon={faCaretDown} />;
@@ -22,52 +27,60 @@ function App() {
   const [loggedUser, setLoggedUser] = useState([]);
   const [logOut, setLogOut] = useState(true);
   const [failed, setFailed] = useState(false);
-  
+  const [error, setError] = useState({username:"",password:""});
 
-  const handleSubmit = useCallback((e) => {
-    e.preventDefault();
-    if (!userName && !password) {
-      setFailed(true);
-    } 
-    else {
-      if (valid) {
-        console.log("CALLED");
-        postRequest().then((data) => {
-          console.log(data);
-          if (!data.error) {
-            setLoggedUser(data);
-            setLogOut(false);
-          } else {
-            setFailed(true);
-            setLogOut(true);
-            return;
-          }
-        });
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (!userName && !password) {
+        setFailed(true);
       } else {
-        setFailed(false);
+        if (valid) {
+          console.log("CALLED");
+          postRequest().then((data) => {
+            if (!data.error) {
+              setLoggedUser(data);
+              setLogOut(false);
+            } else {
+              setFailed(true);
+              setLogOut(true);
+              return;
+            }
+          });
+        } else {
+          setFailed(false);
+        }
       }
-    }
-  },[userName,password]);
-
+    },
+    [userName, password]
+  );
 
   const handleChange = (value, name) => {
-     if (name === "password") {
+    if (name === "password") {
       setPassword(value);
     } else if (name === "username") {
       setUserName(value);
     }
-    localStorage.setItem(name,value);
+    localStorage.setItem(name, value);
   };
-  
-  const handleError = (error) => {
-    if (!error) setValid(true);
-    else setValid(false);
+
+  const handleError = (error,name) => {
+    if (!error) {
+      setValid(true);
+      setError({username:"",password:""});
+    } else {
+      setValid(false);
+      if(name==="username")
+        setError({username:error,password:""});
+      else
+        setError({password:error,username:""})
+    }
   };
 
   const postRequest = async () => {
     const response = await fetch(URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" }, 
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: userName, password: password }),
     });
     return response.json();
@@ -75,7 +88,7 @@ function App() {
 
   const onChecked = () => {
     setChecked(!checked);
-    if(loggedUser){
+    if (loggedUser) {
       setUserName(localStorage.getItem("username"));
       setPassword(localStorage.getItem("password"));
     }
@@ -84,8 +97,9 @@ function App() {
   return (
     <div>
       {logOut ? (
-        <form onSubmit={(e)=>handleSubmit(e)} className="form">  
+        <form onSubmit={(e) => handleSubmit(e)} className="form">
           <h1>Welcome to login app!</h1>
+          <div>
           <InputField
             placeholder="User name"
             name="username"
@@ -94,8 +108,8 @@ function App() {
             onChange={handleChange}
             validation={`required|min:3|max:10`}
             onError={handleError}
-            display={userName}
-            checked={checked}
+            value={userName}
+            error={error}
           />
           <InputField
             placeholder="Password"
@@ -105,11 +119,12 @@ function App() {
             onChange={handleChange}
             validation={"required|min:8"}
             onError={handleError}
-            display={password}
-            checked={checked}
             eye={eye}
             eyeSlash={eyeSlash}
+            value={password}
+            error={error}
           />
+          </div>
           <br />
           <RememberMe checked={checked} onChecked={onChecked} />
           <br />
@@ -117,7 +132,12 @@ function App() {
           {failed ? <Alert /> : null}
         </form>
       ) : (
-        <Logged caretDown={caretDown} caretUp={caretUp} user={loggedUser.user} logOut={setLogOut} />
+        <Logged
+          caretDown={caretDown}
+          caretUp={caretUp}
+          user={loggedUser.user}
+          logOut={setLogOut}
+        />
       )}
     </div>
   );

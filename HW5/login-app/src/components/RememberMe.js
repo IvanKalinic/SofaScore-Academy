@@ -11,7 +11,7 @@ function RememberMe({onChecked,checked}) {
             <input
               className="space"
               type="checkbox"
-              onClick={handleChecked}
+              onChange={handleChecked}
               checked={checked}
             />
             Remember me
