@@ -1,11 +1,11 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import useLocalStorage from "../hooks/useLocalStorage.js";
 
 const TodoContext = React.createContext();
 
 export function useTodos() {
-    return useContext(TodoContext);
-  }
+  return useContext(TodoContext);
+}
 
 export function TodoProvider({ children }) {
   const [todos, setTodos] = useLocalStorage("todos", []);
@@ -75,5 +75,7 @@ export function TodoProvider({ children }) {
     onStatus,
   };
 
-  return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
+  return (<TodoContext.Provider value={value}>
+    {children}
+  </TodoContext.Provider>);
 }

@@ -3,20 +3,17 @@ import { useTodos } from "../context/TodoContext.js";
 import Filter from "./Filter.js";
 import "./Form.css";
 
-// function Form({ onSubmit, input, onStatus, handleChange }) {
+
 function Form(){
   const { handleChange, onSubmit,input,onStatus } = useTodos();
   const [up, setUp] = useState(true);
   const handleInputChange = (e) => {
-    // setInput(e.target.value);
     handleChange(e.target.value);
   };
   const handleSubmit = () => {
     onSubmit(input);
     handleChange("");
   };
-
- 
   const changeSymbol = () => {
     setUp(!up);
   };

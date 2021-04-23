@@ -3,7 +3,6 @@ import { useTodos } from "../context/TodoContext";
 import Todo from "./Todo";
 import "./TodoList.css";
 
-// function TodoList({ filteredTodos,todos, deleteTodo,completeTodo }) {
 function TodoList(){
   const { filteredTodos,todos,deleteTodo,completeTodo } = useTodos();
   return (
