@@ -1,0 +1,49 @@
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input,
+form button {
+  padding: 8px;
+  font-size: 32px;
+  border: none;
+  background: white;
+}
+form button {
+  color: #ff6f47;
+  background: #f7fffe;
+  cursor: pointer;
+  /* transition: all 0.3s ease; */
+}
+form button:hover {
+  background: #ff6f47;
+  color: white;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.filter-position{
+  margin-top:8px;
+}
+.filter{
+  padding:16px;
+  margin-right:-8px;
+  font-size: 25px;
+}
+.show-filter{
+  cursor:pointer;
+  display:flex;
+  align-items: center;
+  font-size:20px;
+  text-transform: uppercase;
+}
+.show-filter:hover{
+  color:#ff6f47;
+}
+
