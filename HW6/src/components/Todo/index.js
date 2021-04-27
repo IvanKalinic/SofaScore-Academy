@@ -1,16 +1,18 @@
 import React from "react";
-import "./Todo.css";
+import { useTodos } from "../../context/TodoContext";
+import "./index.css";
 
-function Todo({text, todo, deleteTodo, completeTodo }) {
+function Todo({text,id,completed }) {
+  const { deleteTodo,completeTodo} = useTodos();
   const handleDelete = () => {
-    deleteTodo(todo.id);
+    deleteTodo(id);
   };
   const handleComplete = () => {
-    completeTodo(todo.id);
+    completeTodo(id);
   };
   return (
     <div className="todo">
-      <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
+      <li className={`todo-item ${completed ? "completed" : ""}`}>
         {text}
       </li>
       {/* Completed */}

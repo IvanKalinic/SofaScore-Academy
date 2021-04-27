@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
-import TodoList from "./components/TodoList";
-import Form from "./components/Form";
+import TodoList from "./components/TodoList/index";
+import Form from "./components/Form/index";
 import { TodoProvider } from "./context/TodoContext";
 
 function App() {
