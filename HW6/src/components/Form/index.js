@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTodos } from "../../context/TodoContext.js";
 import Filter from "../Filter";
-import "./index.css";
+import "./index.scss";
 
 
 function Form(){

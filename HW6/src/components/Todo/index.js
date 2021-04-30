@@ -1,9 +1,11 @@
 import React from "react";
 import { useTodos } from "../../context/TodoContext";
-import "./index.css";
+import "./index.scss";
+import { Check, Trash } from "../../assets/icons/index.js";
 
-function Todo({text,id,completed }) {
-  const { deleteTodo,completeTodo} = useTodos();
+
+function Todo({ text, id, completed }) {
+  const { deleteTodo, completeTodo } = useTodos();
   const handleDelete = () => {
     deleteTodo(id);
   };
@@ -12,17 +14,22 @@ function Todo({text,id,completed }) {
   };
   return (
     <div className="todo">
-      <li className={`todo-item ${completed ? "completed" : ""}`}>
-        {text}
-      </li>
+      <li className={`todo-item ${completed ? "completed" : ""}`}>{text}</li>
       {/* Completed */}
-      <button className="btn-completed" onClick={handleComplete}>
+      {/* <button className="btn-completed" onClick={handleComplete}>
         <i className="fas fa-check"></i>
-      </button>
+      </button> */}
+      <span>
+        <Check onClick={handleComplete} />
+      </span>
+
       {/* Delete */}
-      <button onClick={handleDelete}>
+      {/* <button onClick={handleDelete}>
         <i className="fas fa-trash"></i>
-      </button>
+      </button> */}
+      <span>
+        <Trash onClick={handleDelete} />
+      </span>
     </div>
   );
 }

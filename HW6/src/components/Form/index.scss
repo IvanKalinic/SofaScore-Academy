@@ -1,0 +1,63 @@
+// $primary-color:#ff6f47;
+@import "../../assets/stylesheets/colors";
+@use "src/assets/stylesheets/form" as *;
+// @import "../../assets/stylesheets/form";
+
+%flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form  {
+  min-height: 20vh;
+  @extend %flex-box;
+  // @include kale;
+  button {
+    color: $primary-color;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 32px;
+    border: none;
+    background: white;
+  }
+  button:hover {
+    background: $primary-color;
+    color: white;
+  }
+}
+.input {
+  padding: 8px;
+  font-size: 32px;
+  border: none;
+  background: white;
+  width:800px;
+}
+
+.flex {
+  @extend %flex-box;
+  flex-direction: column;
+}
+.filter-position {
+  margin-top: 8px;
+}
+.filter {
+  padding: 16px;
+  margin-right: -8px;
+  font-size: 25px;
+}
+.show-filter {
+  cursor: pointer;
+  @extend %flex-box;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.show-filter:hover {
+  color: $primary-color;
+}
+
+@media only screen and (max-width:1000px){
+  .input{
+    width:80vw;
+  }
+}

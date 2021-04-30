@@ -1,0 +1,18 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    // min-width:30%;
+    width:800px;
+    list-style: none;
+}
+
+
+@media only screen and (max-width:1000px){
+    .list{
+        width:80vw;
+    }
+}

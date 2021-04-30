@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTodos } from "../../context/TodoContext";
-import "./index.css";
+import "./index.scss";
 
 function Filter() {
   const { onStatus } = useTodos();

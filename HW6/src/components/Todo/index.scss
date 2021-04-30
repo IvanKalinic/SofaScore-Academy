@@ -1,3 +1,6 @@
+@use '../Form';
+@forward '../Form';
+
 .todo{
   margin: 8px;
   background: white;
@@ -21,17 +24,11 @@
 }
 button{
   background: #ff6f47;
+  // background:b.$primary-color;
   color: white;
   border: none;
   padding: 16px; 
   cursor: pointer;
   font-size: 16px;
 
-}
-.btn-completed{
-    background: rgb(11, 212, 162);
-}
-.fa-trash,
-.fa-check {
-  pointer-events: none;
 }

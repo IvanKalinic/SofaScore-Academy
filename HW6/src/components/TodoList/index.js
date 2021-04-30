@@ -1,7 +1,7 @@
 import React from "react";
 import { useTodos } from "../../context/TodoContext";
 import Todo from "../Todo";
-import "./index.css";
+import "./index.scss";
 
 function TodoList(){
   const { filteredTodos} = useTodos();
@@ -18,6 +18,7 @@ function TodoList(){
         ))}
       </ul>
     </div>
+
   );
 }
 
