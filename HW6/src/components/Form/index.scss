@@ -1,18 +1,20 @@
-// $primary-color:#ff6f47;
-@import "../../assets/stylesheets/colors";
-@use "src/assets/stylesheets/form" as *;
-// @import "../../assets/stylesheets/form";
+@use "src/assets/stylesheets/colors" as *;
 
 %flex-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.container{
+  display: flex;
+  width:calc(100% - 16px);
 
+}
 form  {
-  min-height: 20vh;
+  min-height: 150px; 
+  max-width: 1500px;
   @extend %flex-box;
-  // @include kale;
+
   button {
     color: $primary-color;
     cursor: pointer;
@@ -31,7 +33,8 @@ form  {
   font-size: 32px;
   border: none;
   background: white;
-  width:800px;
+  max-width: 1000px;
+  width:calc(100% - 16px);
 }
 
 .flex {
@@ -54,10 +57,4 @@ form  {
 }
 .show-filter:hover {
   color: $primary-color;
-}
-
-@media only screen and (max-width:1000px){
-  .input{
-    width:80vw;
-  }
 }

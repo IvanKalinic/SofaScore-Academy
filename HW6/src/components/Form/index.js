@@ -19,7 +19,7 @@ function Form(){
   };
   return (
     <form className="flex">
-      <div>
+      <div className="container">
         <input
           className="input"
           value={input}
@@ -32,7 +32,7 @@ function Form(){
       <div className="filter-position">
         <div className="show-filter" onClick={changeSymbol}>
           <i className={`filter fas fa-caret-${up ? "up" : "down"}`}></i>
-          <span>Show filters</span>
+          <p>SHOW FILTERS</p>
         </div>
       </div>
       <div>{!up ? <Filter onStatus={onStatus}/> : null}</div>

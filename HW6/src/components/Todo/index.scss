@@ -1,5 +1,4 @@
-@use '../Form';
-@forward '../Form';
+@use "src/assets/stylesheets/colors" as *;
 
 .todo{
   margin: 8px;
@@ -10,7 +9,8 @@
   justify-content: space-between;
   align-items: center;
   transition: all 1s ease;
-
+  display: flex;
+  width:calc(100% - 16px);
 }
 .todo li{
     flex:1;
@@ -23,12 +23,31 @@
     opacity:0.5;
 }
 button{
-  background: #ff6f47;
-  // background:b.$primary-color;
+  background:$primary-color;
   color: white;
   border: none;
   padding: 16px; 
   cursor: pointer;
   font-size: 16px;
 
+}
+.actions{
+  min-width: 124px;
+  max-width: 124px;
+  display: flex;
+}
+span{
+  width: 50%;
+}
+
+@media only screen and (max-width:380px){
+  .actions{
+    align-items: flex-end;
+  }
+  .todo-item{
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
