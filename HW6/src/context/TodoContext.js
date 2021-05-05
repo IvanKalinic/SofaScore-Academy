@@ -8,22 +8,25 @@ export function useTodos() {
 }
 
 export function TodoProvider({ children }) {
-  const [todos, setTodos] = useLocalStorage("todos", []);
+  const [todos, setTodos] = useLocalStorage("todos", []); //todos=[]
   const [input, setInput] = useState("");
   const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([]);
+
+  let filteredTodos = [];
 
   const handleFilter = () => {
     switch (status) {
       case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
+        filteredTodos = todos.filter((todo) => todo.completed === true);
+        console.log(filteredTodos);
         break;
       case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        filteredTodos = todos.filter((todo) => todo.completed === false);
         break;
       default:
-        setFilteredTodos(todos);
+        filteredTodos = todos;
     }
+    return filteredTodos;
   };
 
   useEffect(() => {
@@ -32,7 +35,7 @@ export function TodoProvider({ children }) {
 
   const deleteTodo = (id) => {
     console.log(id);
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id)); //todos=...
   };
   const handleChange = (value) => {
     setInput(value);
@@ -66,7 +69,6 @@ export function TodoProvider({ children }) {
     todos,
     setTodos,
     input,
-    filteredTodos,
     handleFilter,
     deleteTodo,
     completeTodo,
@@ -75,7 +77,5 @@ export function TodoProvider({ children }) {
     onStatus,
   };
 
-  return (<TodoContext.Provider value={value}>
-    {children}
-  </TodoContext.Provider>);
+  return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 }

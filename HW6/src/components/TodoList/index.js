@@ -4,13 +4,14 @@ import Todo from "../Todo";
 import "./index.scss";
 
 function TodoList(){
-  const { filteredTodos} = useTodos();
+  const { handleFilter} = useTodos();
+  let filteredTodos = handleFilter();
   return (
     <div className="container">
       <ul className="list">
-        {filteredTodos.map((todo,i) => (  
+        {filteredTodos.map((todo) => (  
           <Todo
-            key={i}
+            key={todo.id}
             text={todo.text}
             id={todo.id}
             completed={todo.completed}
