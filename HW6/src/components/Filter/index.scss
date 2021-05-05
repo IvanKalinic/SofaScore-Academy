@@ -1,0 +1,21 @@
+.flex-content{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.item{
+  margin:0px 5px;
+}
+.item:hover{
+  cursor:pointer;
+}
+.red{
+  color:red;
+}
+.purple{
+ color:purple;
+}
+.green{
+ color:green;
+}

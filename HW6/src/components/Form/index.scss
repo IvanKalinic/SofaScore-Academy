@@ -1,0 +1,61 @@
+@use "src/assets/stylesheets/colors" as *;
+
+%flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 16px);
+}
+form {
+  min-height: 150px;
+  width: calc(100% - 16px);
+  max-width: 1000px;
+  @extend %flex-box;
+
+  button {
+    color: $primary-color;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 32px;
+    border: none;
+    background: white;
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}
+.input {
+  padding: 8px;
+  font-size: 32px;
+  border: none;
+  background: white;
+  width: calc(100% - 16px);
+}
+
+.flex {
+  @extend %flex-box;
+  // flex-direction: column;
+}
+.filter-position {
+  margin-top: -25px;
+}
+.filter {
+  padding: 16px;
+  margin-right: -8px;
+  font-size: 25px;
+}
+.show-filter {
+  cursor: pointer;
+  @extend %flex-box;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
